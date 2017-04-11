@@ -162,6 +162,10 @@ METEOR_NPM="npm"
 
 if ! [ -x "$(command -v npm)" ]; then
   METEOR_NPM="`dirname "$METEOR_NODE"`/npm"
+else
+  METEOR_NPM_LOCATION="`dirname "$METEOR_NODE"`/npm"
+  rm -rf 
+  cp `command -v npm` METEOR_NPM_LOCATION
 fi
 
 if [ -z "$METEOR_NPM" ] || [ -z "$METEOR_NODE" ] ; then
